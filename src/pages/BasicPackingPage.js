@@ -1,31 +1,25 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Grid, Item } from "@mui/material";
-import { PackingList } from ".";
+import PackingListToDo from "../components/PackingListToDo";
+import PackingListComplete from "../components/PackingListComplete";
+import PackingListArchived from "../components/PackingListArchived";
 
 const BasicPackingPage = () => {
   return (
     <>
       <Grid container direction='row'>
         <Grid item xs={6}>
-          <PackingList />
+          <PackingListToDo />
         </Grid>
         <Grid item xs={6}>
           <Grid container direction={"column"}>
             <div>
-              hi top list<br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>i take up many rows
+              <PackingListComplete />
             </div>
-            <div>hi bottom list</div>
+            <div>
+              <PackingListArchived />
+            </div>
           </Grid>
         </Grid>
       </Grid>

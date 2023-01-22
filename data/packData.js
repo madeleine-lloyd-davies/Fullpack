@@ -89,3 +89,23 @@ export const packData = [
       "There are always some things you feel like you can't pack in advance, or even some tasks you need to get done when you're leaving. Any meds or toiletries you were still using and couldn't pack in advance? Any special outfit/shoes you want to be wearing to travel? Anything you want to make sure you have at the top of your bag for easy access during travel? Any tasks to remember, like taking out the garbage, texting your friend, downloading playlists, checking into a flight, scheduling a ride to the airport, checking in with the catsitter?",
   },
 ];
+
+//sample hardcoded array of complete category
+export const sampleComplete = [
+  {
+    name: "example completed item1",
+    description: "this is a fake completed item for hardcoded testing",
+  },
+  { name: "example completed item2", description: "a second completed item" },
+];
+
+export const sampleArchive = [
+  {
+    name: "example archived item",
+    description: "an item you aren't going to pack",
+  },
+  {
+    name: "a second archived item",
+    description: "a second sample archive item",
+  },
+];

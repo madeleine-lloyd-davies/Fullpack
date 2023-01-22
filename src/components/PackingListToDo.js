@@ -11,6 +11,11 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Box,
+  Checkbox,
+  FormControlLabel,
+  ListItem,
+  ListItemText,
 } from "@mui/material";
 
 /*
@@ -21,7 +26,7 @@ notes/todos
 #add to do count at top of list (ie, number completed / total to do?)
 */
 
-const PackingList = () => {
+const PackingListToDo = () => {
   const [open, setOpen] = useState(false);
   const [list, updateList] = useState(packData);
   const [newItem, setNewItem] = useState("");
@@ -37,7 +42,7 @@ const PackingList = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    list.push({ name: newItem });
+    list.unshift({ name: newItem });
     setNewItem("");
     handleClose();
   };
@@ -46,10 +51,22 @@ const PackingList = () => {
     setOpen(false);
   };
 
+  const todoBrick = (categoryObj) => {
+    return (
+      <ListItem key={categoryObj.name}>
+        <Checkbox />
+        <ListItemText
+          primary={categoryObj.name}
+          secondary={categoryObj.description}
+        />
+      </ListItem>
+    );
+  };
+
   return (
     <>
+      <h2>TO PACK:</h2>
       <List>
-        {list.map((category) => CategoryBrick(category))}
         <Button variant='outlined' onClick={handleClickOpen}>
           ADD ITEM
         </Button>
@@ -75,9 +92,10 @@ const PackingList = () => {
             <Button onClick={handleSubmit}>Add</Button>
           </DialogActions>
         </Dialog>
+        {list.map((category) => todoBrick(category))}
       </List>
     </>
   );
 };
 
-export default PackingList;
+export default PackingListToDo;

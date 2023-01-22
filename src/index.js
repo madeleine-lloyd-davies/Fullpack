@@ -11,7 +11,7 @@ const root = createRoot(container);
 root.render(
   <Router>
     <Provider store={store}>
-      <p>howdy</p>
+      <p>howdy from src/index.js</p>
       <App />
     </Provider>
   </Router>
