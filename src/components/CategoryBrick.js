@@ -18,7 +18,6 @@ import { packData } from "../../data/packData";
 {
   name:
   description:
-  status: (deleted, active, or complete?)
 }
 */
 

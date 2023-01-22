@@ -13,6 +13,14 @@ import {
   DialogTitle,
 } from "@mui/material";
 
+/*
+notes/todos
+#use state instead of hardcoded data
+#update 'add' function to allow user to input desc and not just name?
+#do we need to do anything yet to add unique ids to these? is it enough to count on unique names? if that is the case, we should check the name before allowing user to add a new one
+#add to do count at top of list (ie, number completed / total to do?)
+*/
+
 const PackingList = () => {
   const [open, setOpen] = useState(false);
   const [list, updateList] = useState(packData);

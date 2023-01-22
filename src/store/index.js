@@ -1,12 +1,10 @@
-/* Here is where you will configure the store 
-
-*/ 
-
 import { configureStore } from "@reduxjs/toolkit";
-
+import packListReducer from "./slices/packListSlice";
 
 const store = configureStore({
-  reducer: {}
+  reducer: {
+    packList: packListReducer,
+  },
 });
 
 export default store;
