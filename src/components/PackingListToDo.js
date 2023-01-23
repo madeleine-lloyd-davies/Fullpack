@@ -17,6 +17,7 @@ import {
   ListItem,
   ListItemText,
 } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 /*
 notes/todos
@@ -55,10 +56,12 @@ const PackingListToDo = () => {
     return (
       <ListItem key={categoryObj.name}>
         <Checkbox />
+
         <ListItemText
           primary={categoryObj.name}
           secondary={categoryObj.description}
         />
+        <DeleteIcon />
       </ListItem>
     );
   };
