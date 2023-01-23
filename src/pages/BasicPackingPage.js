@@ -4,22 +4,30 @@ import { Grid, Item } from "@mui/material";
 import PackingListToDo from "../components/PackingListToDo";
 import PackingListComplete from "../components/PackingListComplete";
 import PackingListArchived from "../components/PackingListArchived";
+import { borders } from "@mui/system";
 
 const BasicPackingPage = () => {
   return (
     <>
-      <Grid container direction='row'>
+      <Grid
+        container
+        spacing={2}
+        direction='row'
+        justifyContent='space-around'
+        alignItems='flex-start'
+      >
         <Grid item xs={6}>
-          <PackingListToDo />
+          <Grid item sx={{ border: 1, borderRadius: "16px" }}>
+            <PackingListToDo />
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <Grid container direction={"column"}>
-            <div>
-              <PackingListComplete />
-            </div>
-            <div>
-              <PackingListArchived />
-            </div>
+
+        <Grid item xs={6} container direction={"column"} rowGap={2}>
+          <Grid item sx={{ border: 1, borderRadius: "16px" }}>
+            <PackingListComplete />
+          </Grid>
+          <Grid item sx={{ border: 1, borderRadius: "16px" }}>
+            <PackingListArchived />
           </Grid>
         </Grid>
       </Grid>

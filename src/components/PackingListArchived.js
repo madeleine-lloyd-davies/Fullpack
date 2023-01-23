@@ -16,6 +16,7 @@ import {
   ListItem,
   ListItemText,
 } from "@mui/material";
+import UnarchiveOutlinedIcon from "@mui/icons-material/UnarchiveOutlined";
 
 const PackingListArchived = () => {
   const [list, updateList] = useState(sampleArchive);
@@ -23,6 +24,7 @@ const PackingListArchived = () => {
   const archiveBrick = (categoryObj) => {
     return (
       <ListItem key={categoryObj.name}>
+        <UnarchiveOutlinedIcon />
         <ListItemText primary={categoryObj.name} />
       </ListItem>
     );
