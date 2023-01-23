@@ -33,7 +33,6 @@ const PackingListToDo = () => {
   const [newItem, setNewItem] = useState("");
 
   const handleClickOpen = () => {
-    console.log("clicky");
     setOpen(true);
   };
 

@@ -33,10 +33,13 @@ const packListSlice = createSlice({
       state.toDo = state.toDo.filter((obj) => obj.name !== action.payload.name);
       state.inactive.push(action.payload);
     },
+    addToDo: (state, action) => {
+      state.toDo.unshift(action.payload);
+    },
   },
 });
 
 export const selectPackList = (state) => state.packList;
 export default packListSlice.reducer;
-export const { completeToDo, unarchive, uncomplete, archive } =
+export const { completeToDo, unarchive, uncomplete, archive, addToDo } =
   packListSlice.actions;
