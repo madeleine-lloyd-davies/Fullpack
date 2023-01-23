@@ -119,7 +119,7 @@ some items - default quant "travelDays"
 some items - default quant "tripDuration"
 set default quantity for each item and have + and - available so user can adjust
  */
-export const customListWizard = [
+export const customListQuiz = [
   {
     name: "Essentials",
     items: [
