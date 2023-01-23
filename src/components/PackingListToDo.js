@@ -3,6 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { packData } from "../../data/packData";
 import CategoryBrick from "./CategoryBrick";
 import {
+  selectPackList,
+  completeToDo,
+  addToDo,
+  archive,
+} from "../store/slices/packListSlice";
+import {
   List,
   Button,
   TextField,
@@ -28,9 +34,12 @@ notes/todos
 */
 
 const PackingListToDo = () => {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [list, updateList] = useState(packData);
   const [newItem, setNewItem] = useState("");
+
+  const { toDo, inactive, complete } = useSelector(selectPackList);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -42,7 +51,7 @@ const PackingListToDo = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    list.unshift({ name: newItem });
+    dispatch(addToDo({ name: newItem }));
     setNewItem("");
     handleClose();
   };
@@ -52,15 +61,21 @@ const PackingListToDo = () => {
   };
 
   const todoBrick = (categoryObj) => {
+    const handleCheck = () => {
+      dispatch(completeToDo(categoryObj));
+    };
+    const handleArchive = () => {
+      dispatch(archive(categoryObj));
+    };
     return (
       <ListItem key={categoryObj.name}>
-        <Checkbox />
+        <Checkbox onChange={handleCheck} />
 
         <ListItemText
           primary={categoryObj.name}
           secondary={categoryObj.description}
         />
-        <DeleteIcon />
+        <DeleteIcon onClick={handleArchive} />
       </ListItem>
     );
   };
@@ -94,7 +109,7 @@ const PackingListToDo = () => {
             <Button onClick={handleSubmit}>Add</Button>
           </DialogActions>
         </Dialog>
-        {list.map((category) => todoBrick(category))}
+        {toDo.map((category) => todoBrick(category))}
       </List>
     </>
   );

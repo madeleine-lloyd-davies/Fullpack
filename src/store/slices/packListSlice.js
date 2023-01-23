@@ -1,9 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+import {
+  packData,
+  sampleComplete,
+  sampleArchive,
+} from "../../../data/packData";
 const packListSlice = createSlice({
   name: "packList",
-  initialState: { toDo: [], complete: [], inactive: [] },
+  initialState: {
+    toDo: packData,
+    complete: sampleComplete,
+    inactive: sampleArchive,
+  },
   //note: packData is an array of category objects--{name:, description:}
   //that will be the initial to do array on basic to do pages
   reducers: {
