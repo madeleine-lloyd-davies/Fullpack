@@ -5,12 +5,13 @@ import {
   sampleComplete,
   sampleArchive,
 } from "../../../data/packData";
+
 const packListSlice = createSlice({
   name: "packList",
   initialState: {
     toDo: packData,
-    complete: sampleComplete,
-    inactive: sampleArchive,
+    complete: [],
+    inactive: [],
   },
   //note: packData is an array of category objects--{name:, description:}
   //that will be the initial to do array on basic to do pages
